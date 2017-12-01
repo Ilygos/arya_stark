@@ -38,6 +38,14 @@ app.post('/sendData', function (req, res) {
     });
 });
 
+app.post('/resetEntry', function (req, res) {
+    var reqBody = req.body;
+    var user = {
+        username: reqBody.username
+    };
+    removeUser(user.username);
+});
+
 app.post('/retrieveData', function (req, res) {
     var reqBody = req.body;
     fetchUsers({
@@ -50,7 +58,7 @@ app.post('/retrieveData', function (req, res) {
             insertUser(
               {
                 username: reqBody.username,
-                coinLevel1 : {"instance1": true},
+                coinLevel1 : [],
                 coinLevel2 : [],
                 coinLevel3 : [],
                 powerUpJump : false,
@@ -173,6 +181,11 @@ function updateUser (user, callback) {
     }, callback);
 }
 
+
+function removeUser(pUsername)
+{
+  usersCollection.remove( { username: pUsername } );
+}
 
 function descendingUsers (callback) {
     aggregateUsers([
