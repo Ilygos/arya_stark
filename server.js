@@ -50,9 +50,9 @@ app.post('/retrieveData', function (req, res) {
             insertUser(
               {
                 username: reqBody.username,
-                coinLevel1 : 0,
-                coinLevel2 : 0,
-                coinLevel3 : 0,
+                coinLevel1 : [],
+                coinLevel2 : [],
+                coinLevel3 : [],
                 powerUpJump : false,
                 powerUpShot : false,
                 powerUpShield : false
