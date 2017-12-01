@@ -50,7 +50,7 @@ app.post('/retrieveData', function (req, res) {
             insertUser(
               {
                 username: reqBody.username,
-                coinLevel1 : {"instance1", true},
+                coinLevel1 : {"instance1": true},
                 coinLevel2 : [],
                 coinLevel3 : [],
                 powerUpJump : false,
